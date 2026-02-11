@@ -1,0 +1,121 @@
+# OpenClaw Job Search Agent - Terraform Variables
+# Copy this file to terraform.tfvars and customize with your values
+# NEVER commit terraform.tfvars to git (it contains secrets)
+
+# ============================================
+# Hostinger Configuration
+# ============================================
+
+# Get your API token from: Hostinger Dashboard → API Access
+hostinger_api_token = "your_hostinger_api_token_here"
+
+# VPS Plan (KVM 2: 2 vCPU, 8GB RAM, 100GB NVMe)
+vps_plan = "hostingercom-vps-kvm2-usd-1m"
+
+# Data center location
+# Options: "eu-central" (Europe), "us-west" (USA), "asia-singapore" (Asia)
+data_center_id = "eu-central"
+
+# VPS hostname
+hostname = "openclaw-jobseeker"
+
+# Operating system
+os_image = "ubuntu-22.04"
+
+# ============================================
+# SSH Configuration
+# ============================================
+
+# Generate SSH key: ssh-keygen -t ed25519 -C "openclaw-vps" -f ~/.ssh/openclaw_vps
+# Then paste the PUBLIC key here (contents of ~/.ssh/openclaw_vps.pub)
+ssh_public_key = "ssh-ed25519 AAAA... your_public_key_here"
+
+# ============================================
+# User Configuration
+# ============================================
+
+# Your full name (used in SOUL.md and job applications)
+user_full_name = "Your Full Name"
+
+# Notification email (dedicated email for job alerts - NOT your personal inbox)
+# This is where the agent will send job digests
+user_email = "job-notifications@example.com"
+
+# ============================================
+# Job Search Parameters
+# ============================================
+
+# Target location for job search
+target_location = "Central London"
+
+# Target roles (comma-separated)
+target_roles = "Mental Health Support Worker,SEN Support Assistant,Therapy Assistant,Healthcare Assistant,Youth Support Worker"
+
+# Minimum acceptable salary
+min_salary = "£22000"
+
+# Maximum commute time in minutes
+max_commute_minutes = 60
+
+# ============================================
+# LLM Provider Configuration
+# Choose at least one (Anthropic recommended)
+# ============================================
+
+# Anthropic (Claude) - Recommended for complex reasoning
+# Get your API key: https://console.anthropic.com/
+anthropic_api_key = "sk-ant-api03-..."
+
+# OpenAI (GPT-4) - Alternative provider
+# Get your API key: https://platform.openai.com/
+openai_api_key = ""
+
+# ============================================
+# Email Configuration (for sending notifications)
+# ============================================
+
+# SMTP host (Gmail example)
+smtp_host = "smtp.gmail.com"
+
+# SMTP port (587 for TLS, 465 for SSL)
+smtp_port = 587
+
+# SMTP username (usually your email address)
+smtp_user = "your_email@gmail.com"
+
+# SMTP password
+# For Gmail: Generate an App Password at https://myaccount.google.com/apppasswords
+smtp_password = "your_app_password_here"
+
+# From address for notification emails
+smtp_from = "openclaw-agent@yourdomain.com"
+
+# ============================================
+# Optional: Messaging Integration
+# ============================================
+
+# Telegram Bot (optional)
+# Create bot: Message @BotFather on Telegram and run /newbot
+telegram_bot_token = ""
+
+# Telegram Chat ID (optional)
+# Get your chat ID: Message @userinfobot on Telegram
+telegram_chat_id = ""
+
+# WhatsApp Business API (optional)
+whatsapp_token = ""
+
+# ============================================
+# Example Configuration with Real Values
+# ============================================
+
+# hostinger_api_token = "1234567890abcdef1234567890abcdef"
+# ssh_public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGq..."
+# user_full_name = "Jane Smith"
+# user_email = "jane.jobsearch@gmail.com"
+# anthropic_api_key = "sk-ant-api03-abcd1234..."
+# smtp_host = "smtp.gmail.com"
+# smtp_port = 587
+# smtp_user = "jane.notifications@gmail.com"
+# smtp_password = "abcd efgh ijkl mnop"
+# smtp_from = "jobseeker@janesmith.com"

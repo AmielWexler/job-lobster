@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  gateway:
+    image: openclaw/gateway:latest
+    container_name: openclaw-gateway-local
+    ports:
+      - "18789:18789"
+    volumes:
+      - ../local_workspace:/root/workspace
+      - ../local_workspace/.env:/app/.env
+    environment:
+      - NODE_ENV=development
+      - PORT=18789
+      - WORKSPACE_PATH=/root/workspace
+    restart: unless-stopped
+    networks:
+      - openclaw-network
+
+  # Watchtower for automatic updates (optional for local)
+  watchtower:
+    image: containrrr/watchtower
+    container_name: openclaw-watchtower-local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 86400 --cleanup
+    restart: unless-stopped
+    networks:
+      - openclaw-network
+
+networks:
+  openclaw-network:
+    driver: bridge
