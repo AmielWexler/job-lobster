@@ -37,6 +37,7 @@ cp templates/SECURITY.md ./local_workspace/workspace/
 cp templates/MEMORY.md ./local_workspace/workspace/
 cp templates/applications_tracker.csv ./local_workspace/workspace/
 cp templates/cv_latest.md ./local_workspace/workspace/
+cp templates/openclaw.json ./local_workspace/
 touch ./local_workspace/workspace/sent_emails.log
 
 # Create .env for local testing if it doesn't exist
